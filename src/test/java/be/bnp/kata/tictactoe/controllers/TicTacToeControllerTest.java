@@ -1,17 +1,25 @@
 package be.bnp.kata.tictactoe.controllers;
 
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
+import be.bnp.kata.tictactoe.services.TicTacToeGame;
+
 @WebMvcTest(TicTacToeController.class)
 class TicTacToeControllerTest {
 
+	@Mock
+	TicTacToeGame game;
+	
 	@Autowired
 	MockMvc mockMvc;
 	
@@ -22,4 +30,9 @@ class TicTacToeControllerTest {
 		.andExpect(view().name("index"));
 	}
 
+	@Test
+	void initGameShouldLaunchNewGame() throws Exception {
+		mockMvc.perform(get("/tictactoe"));
+		verify(game, times(1)).launchNewGame();
+	}
 }
