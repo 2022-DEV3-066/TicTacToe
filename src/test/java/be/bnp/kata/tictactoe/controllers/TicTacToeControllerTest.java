@@ -15,6 +15,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import be.bnp.kata.tictactoe.model.Board;
+import be.bnp.kata.tictactoe.model.SlotType;
 import be.bnp.kata.tictactoe.services.TicTacToeGame;
 
 @WebMvcTest(TicTacToeController.class)
@@ -44,5 +45,12 @@ class TicTacToeControllerTest {
 		when(game.getBoard()).thenReturn(new Board());
 		mockMvc.perform(get("/tictactoe"))
 		.andExpect(model().attributeExists("board"));
+	}
+	
+	@Test
+	void whenInitGameCalledModelShouldHaveCurrentPlayerEqualsToX() throws Exception {
+		when(game.getCurrentPlayer()).thenReturn(SlotType.X);
+		mockMvc.perform(get("/tictactoe"))
+		.andExpect(model().attribute("currentPlayer", SlotType.X));
 	}
 }
