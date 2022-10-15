@@ -17,4 +17,9 @@ public class Board {
 		return slotList;
 	}
 
+	public void setSlotType(SlotType o, int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

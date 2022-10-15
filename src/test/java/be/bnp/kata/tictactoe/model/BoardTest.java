@@ -16,4 +16,11 @@ class BoardTest {
 	void newSlotListShouldHaveExactlyNineSlots() {
 		assertEquals(9, new Board().getSlotList().size());
 	}
+
+	@Test
+	void settingSlotTypeToSlotNumberShouldUpdateSlotInBoardSlotList() {
+		Board board = new Board();
+		board.setSlotType(SlotType.O, 2);
+		assertEquals(SlotType.O, board.getSlotList().get(2).getSlotType());
+	}
 }
