@@ -1,10 +1,14 @@
 package be.bnp.kata.tictactoe.model;
 
-public class Board {
+import java.util.ArrayList;
+import java.util.List;
 
-	public Object getSlotList() {
-		// TODO Auto-generated method stub
-		return new Object();
+public class Board {
+	
+	List<Slot> slotList;
+
+	public List<Slot> getSlotList() {
+		return new ArrayList<>();
 	}
 
 }
