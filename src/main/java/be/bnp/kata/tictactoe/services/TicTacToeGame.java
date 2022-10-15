@@ -38,8 +38,12 @@ public class TicTacToeGame {
 			currentPlayer = SlotType.X;
 	}
 
-	public Object checkForAWinner() {
-		return SlotType.X;
+	public SlotType checkForAWinner() {
+		SlotType row1col1 = board.getSlotList().get(0).getSlotType();
+		if (row1col1.equals(board.getSlotList().get(1).getSlotType()) 
+				&& row1col1.equals(board.getSlotList().get(2).getSlotType()))
+			return row1col1;
+		return null;
 	}
 	
 }
