@@ -19,6 +19,8 @@ public class Board {
 
 	public void setSlotType(SlotType slotType, int slotNumber) {
 		Slot selectedSlot = slotList.get(slotNumber);
+		if (selectedSlot.getSlotType() != SlotType.A)
+			throw new IllegalArgumentException();
 		selectedSlot.setSlotType(slotType);
 	}
 
