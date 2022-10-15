@@ -15,7 +15,7 @@ public class TicTacToeController {
 		this.game = game;
 	}
 
-	@GetMapping("/tictactoe")
+	@GetMapping({"/tictactoe", "/"})
 	public String initGame(Model model) {
 		game.launchNewGame();
 		model.addAttribute("board", game.getBoard());
