@@ -22,4 +22,9 @@ public class TicTacToeController {
 		model.addAttribute("currentPlayer", game.getCurrentPlayer());
 		return "index";
 	}
+	
+	@GetMapping("/tictactoe/slot/9")
+	public String selectSlot() {
+		throw new IllegalArgumentException();
+	}
 }
