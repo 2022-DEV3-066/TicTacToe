@@ -92,4 +92,14 @@ class TicTacToeGameTest {
 		board.setSlotType(SlotType.O, 5);
 		assertEquals(SlotType.O, game.checkForAWinner());
 	}
+	
+	@Test
+	void threeXInThirdRowShouldWinTheGame() {
+		game.launchNewGame();
+		Board board = game.getBoard();
+		board.setSlotType(SlotType.X, 6);
+		board.setSlotType(SlotType.X, 7);
+		board.setSlotType(SlotType.X, 8);
+		assertEquals(SlotType.X, game.checkForAWinner());
+	}
 }
