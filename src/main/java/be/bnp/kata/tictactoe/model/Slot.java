@@ -2,9 +2,9 @@ package be.bnp.kata.tictactoe.model;
 
 public class Slot {
 
-	public Short getSlotType() {
+	public SlotType getSlotType() {
 		// TODO Auto-generated method stub
-		return null;
+		return SlotType.A;
 	}
 
 }
