@@ -39,10 +39,19 @@ public class TicTacToeGame {
 	}
 
 	public SlotType checkForAWinner() {
+		
 		SlotType row1col1 = board.getSlotList().get(0).getSlotType();
-		if (row1col1.equals(board.getSlotList().get(1).getSlotType()) 
+		if (row1col1 != SlotType.A 
+				&& row1col1.equals(board.getSlotList().get(1).getSlotType()) 
 				&& row1col1.equals(board.getSlotList().get(2).getSlotType()))
 			return row1col1;
+		
+		SlotType row2col1 = board.getSlotList().get(3).getSlotType();
+		if (row2col1 != SlotType.A 
+				&& row2col1.equals(board.getSlotList().get(4).getSlotType()) 
+				&& row2col1.equals(board.getSlotList().get(5).getSlotType()))
+			return row2col1;
+		
 		return null;
 	}
 	
