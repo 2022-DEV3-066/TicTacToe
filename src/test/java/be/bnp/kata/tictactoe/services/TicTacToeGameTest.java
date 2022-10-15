@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import be.bnp.kata.tictactoe.model.Board;
 import be.bnp.kata.tictactoe.model.SlotType;
 
 class TicTacToeGameTest {
@@ -60,5 +61,15 @@ class TicTacToeGameTest {
 		SlotType currentPlayer = game.getCurrentPlayer();
 		game.updateBoardWithSelectedSlot(VALID_SLOT_NUMBER);
 		assertEquals(currentPlayer, game.getBoard().getSlotList().get(VALID_SLOT_NUMBER).getSlotType());
+	}
+
+	@Test
+	void threeXInFirstRowShouldWinTheGame() {
+		game.launchNewGame();
+		Board board = game.getBoard();
+		board.setSlotType(SlotType.X, 0);
+		board.setSlotType(SlotType.X, 1);
+		board.setSlotType(SlotType.X, 2);
+		assertEquals(SlotType.X, game.checkForAWinner());
 	}
 }

@@ -37,5 +37,10 @@ public class TicTacToeGame {
 		else
 			currentPlayer = SlotType.X;
 	}
+
+	public Object checkForAWinner() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
