@@ -72,4 +72,10 @@ class TicTacToeControllerTest {
 		.andExpect(status().isOk())
 		.andExpect(view().name("index"));
 	}
+	
+	@Test
+	void selectingSlot4ShouldCallupdateBoardWithSelectedSlot() throws Exception {
+		mockMvc.perform(get("/tictactoe/slot/4"));
+		verify(game, times(1)).updateBoardWithSelectedSlot(4);
+	}
 }
