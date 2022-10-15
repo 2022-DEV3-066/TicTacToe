@@ -59,6 +59,10 @@ public class TicTacToeGame {
 		SlotType row1col2 = board.getSlotType(1);
 		if (row1col2 != SlotType.A && row1col2 == board.getSlotType(4) && row1col2 == board.getSlotType(7))
 			return row1col2;
+
+		SlotType row1col3 = board.getSlotType(2);
+		if (row1col3 != SlotType.A && row1col3 == board.getSlotType(5) && row1col3 == board.getSlotType(8))
+			return row1col3;
 		
 		return null;
 	}
