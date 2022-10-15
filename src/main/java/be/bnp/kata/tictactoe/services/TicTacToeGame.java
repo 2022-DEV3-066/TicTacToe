@@ -6,15 +6,15 @@ import be.bnp.kata.tictactoe.model.Board;
 
 @Service
 public class TicTacToeGame {
-
+	
+	private Board board;
+	
 	public void launchNewGame() {
-		// TODO Auto-generated method stub
-		
+		board = new Board();
 	}
 
 	public Board getBoard() {
-		// TODO Auto-generated method stub
-		return new Board();
+		return board;
 	}
 	
 }
