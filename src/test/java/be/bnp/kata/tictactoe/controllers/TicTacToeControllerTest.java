@@ -65,4 +65,11 @@ class TicTacToeControllerTest {
 	void selectingSlot9ShouldThrowException() {
 		assertThrows(Exception.class, () -> mockMvc.perform(get("/tictactoe/slot/9")));
 	}
+	
+	@Test
+	void selectingSlot2ShouldDisplayIndexPage() throws Exception {
+		mockMvc.perform(get("/tictactoe/slot/2"))
+		.andExpect(status().isOk())
+		.andExpect(view().name("index"));
+	}
 }
