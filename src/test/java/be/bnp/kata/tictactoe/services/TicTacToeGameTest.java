@@ -53,4 +53,12 @@ class TicTacToeGameTest {
 		game.updateBoardWithSelectedSlot(VALID_SLOT_NUMBER);
 		assertNotEquals(currentPlayer, game.getCurrentPlayer());
 	}
+	
+	@Test
+	void updatingBoardShouldUpdateSlotListForSelectedSlot() {
+		game.launchNewGame();
+		SlotType currentPlayer = game.getCurrentPlayer();
+		game.updateBoardWithSelectedSlot(VALID_SLOT_NUMBER);
+		assertEquals(currentPlayer, game.getBoard().getSlotList().get(VALID_SLOT_NUMBER).getSlotType());
+	}
 }
