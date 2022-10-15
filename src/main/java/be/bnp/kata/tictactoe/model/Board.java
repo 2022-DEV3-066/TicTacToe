@@ -31,6 +31,12 @@ public class Board {
 	}
 
 	public boolean availableSlotsRemain() {
-		return true;
+		
+		for (Slot currentSlot : slotList) {
+			if (currentSlot.getSlotType() == SlotType.A) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
