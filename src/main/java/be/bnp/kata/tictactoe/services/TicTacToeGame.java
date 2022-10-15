@@ -9,9 +9,11 @@ import be.bnp.kata.tictactoe.model.SlotType;
 public class TicTacToeGame {
 	
 	private Board board;
+	private SlotType currentPlayer;
 	
 	public void launchNewGame() {
 		board = new Board();
+		currentPlayer = SlotType.X;
 	}
 
 	public Board getBoard() {
@@ -19,7 +21,7 @@ public class TicTacToeGame {
 	}
 
 	public SlotType getCurrentPlayer() {
-		return SlotType.X;
+		return currentPlayer;
 	}
 	
 }
