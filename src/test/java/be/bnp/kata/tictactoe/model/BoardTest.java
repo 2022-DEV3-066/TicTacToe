@@ -54,4 +54,19 @@ class BoardTest {
 		board.setSlotType(SlotType.X, 7);
 		assertEquals(true, board.availableSlotsRemain());
 	}
+
+	@Test
+	void shouldReturnFalseIfThereIsNoAvailableSlot() {
+		Board board = new Board();
+		board.setSlotType(SlotType.X, 0);
+		board.setSlotType(SlotType.X, 1);
+		board.setSlotType(SlotType.O, 2);
+		board.setSlotType(SlotType.O, 3);
+		board.setSlotType(SlotType.O, 4);
+		board.setSlotType(SlotType.X, 5);
+		board.setSlotType(SlotType.X, 6);
+		board.setSlotType(SlotType.O, 7);
+		board.setSlotType(SlotType.X, 8);
+		assertEquals(false, board.availableSlotsRemain());
+	}
 }
