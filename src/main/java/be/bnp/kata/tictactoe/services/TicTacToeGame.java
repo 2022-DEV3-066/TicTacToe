@@ -25,7 +25,9 @@ public class TicTacToeGame {
 	}
 
 	public Object updateBoardWithSelectedSlot(int i) {
-		throw new RuntimeException();
+		if (i < 0 || i > 8)
+			throw new RuntimeException();
+		return null;
 	}
 	
 }
