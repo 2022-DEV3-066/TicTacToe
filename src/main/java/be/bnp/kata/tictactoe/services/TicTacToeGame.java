@@ -25,8 +25,7 @@ public class TicTacToeGame {
 	}
 
 	public Object updateBoardWithSelectedSlot(int i) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new RuntimeException();
 	}
 	
 }
