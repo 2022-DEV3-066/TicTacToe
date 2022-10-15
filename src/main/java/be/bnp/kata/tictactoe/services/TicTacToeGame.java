@@ -16,5 +16,10 @@ public class TicTacToeGame {
 	public Board getBoard() {
 		return board;
 	}
+
+	public Object getCurrentPlayer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
