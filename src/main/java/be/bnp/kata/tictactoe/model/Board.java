@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Board {
 	
+	public final static String SELECTED_SLOT_NOT_AVAILABLE = "Selected slot must be available";
+	
 	private List<Slot> slotList;
 	
 	public Board() {
@@ -20,7 +22,7 @@ public class Board {
 	public void setSlotType(SlotType slotType, int slotNumber) {
 		Slot selectedSlot = slotList.get(slotNumber);
 		if (selectedSlot.getSlotType() != SlotType.A)
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException(SELECTED_SLOT_NOT_AVAILABLE);
 		selectedSlot.setSlotType(slotType);
 	}
 
