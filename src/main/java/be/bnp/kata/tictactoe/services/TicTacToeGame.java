@@ -65,6 +65,11 @@ public class TicTacToeGame {
 		if (firstSlotType != SlotType.A && firstSlotType == board.getSlotType(4) && firstSlotType == board.getSlotType(8))
 			return firstSlotType;
 
+		// checking second diagonal
+		firstSlotType = board.getSlotType(2);
+		if (firstSlotType != SlotType.A && firstSlotType == board.getSlotType(4) && firstSlotType == board.getSlotType(6))
+			return firstSlotType;
+
 		return null;
 	}
 	
