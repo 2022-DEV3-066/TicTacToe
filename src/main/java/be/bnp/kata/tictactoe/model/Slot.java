@@ -12,4 +12,8 @@ public class Slot {
 		return slotType;
 	}
 
+	public void setSlotType(SlotType o) {
+		slotType = o;
+	}
+
 }

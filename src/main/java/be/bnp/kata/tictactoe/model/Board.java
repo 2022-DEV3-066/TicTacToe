@@ -18,8 +18,8 @@ public class Board {
 	}
 
 	public void setSlotType(SlotType o, int i) {
-		// TODO Auto-generated method stub
-		
+		Slot selectedSlot = slotList.get(i);
+		selectedSlot.setSlotType(o);
 	}
 
 }
