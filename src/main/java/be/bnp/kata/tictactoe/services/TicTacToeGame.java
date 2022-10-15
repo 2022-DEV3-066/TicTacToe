@@ -3,6 +3,7 @@ package be.bnp.kata.tictactoe.services;
 import org.springframework.stereotype.Service;
 
 import be.bnp.kata.tictactoe.model.Board;
+import be.bnp.kata.tictactoe.model.Slot;
 import be.bnp.kata.tictactoe.model.SlotType;
 
 @Service
@@ -29,6 +30,9 @@ public class TicTacToeGame {
 	public void updateBoardWithSelectedSlot(int slotNumber) {
 		if (slotNumber < 0 || slotNumber > 8)
 			throw new IllegalArgumentException(WRONG_SLOT_NUMBER);
+		
+		Slot selectedSlot = board.getSlotList().get(slotNumber);
+		selectedSlot.setSlotType(currentPlayer);
 		
 		if (currentPlayer == SlotType.X)
 			currentPlayer = SlotType.O;
