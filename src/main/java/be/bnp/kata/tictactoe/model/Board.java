@@ -29,4 +29,9 @@ public class Board {
 	public SlotType getSlotType(int slotNumber) {
 		return slotList.get(slotNumber).getSlotType();
 	}
+
+	public Object availableSlotsRemain() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

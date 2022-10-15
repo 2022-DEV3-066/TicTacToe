@@ -40,4 +40,18 @@ class BoardTest {
 		selectedSlot.setSlotType(SlotType.O);
 		assertThrows(IllegalArgumentException.class, () -> board.setSlotType(SlotType.X, VALID_SLOT_NUMBER));
 	}
+
+	@Test
+	void shouldReturnTrueIfThereIsOneAvailableSlot() {
+		Board board = new Board();
+		board.setSlotType(SlotType.X, 0);
+		board.setSlotType(SlotType.X, 1);
+		board.setSlotType(SlotType.O, 2);
+		board.setSlotType(SlotType.O, 3);
+		board.setSlotType(SlotType.O, 4);
+		board.setSlotType(SlotType.X, 5);
+		board.setSlotType(SlotType.X, 6);
+		board.setSlotType(SlotType.X, 7);
+		assertEquals(true, board.availableSlotsRemain());
+	}
 }
