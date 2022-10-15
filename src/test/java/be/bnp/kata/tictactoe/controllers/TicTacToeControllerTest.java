@@ -3,6 +3,7 @@ package be.bnp.kata.tictactoe.controllers;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
@@ -34,5 +35,11 @@ class TicTacToeControllerTest {
 	void initGameShouldLaunchNewGame() throws Exception {
 		mockMvc.perform(get("/tictactoe"));
 		verify(game, times(1)).launchNewGame();
+	}
+	
+	@Test
+	void whenInitGameCalledModelShouldHaveBoardAttribute() throws Exception {
+		mockMvc.perform(get("/tictactoe"))
+		.andExpect(model().attributeExists("board"));
 	}
 }
