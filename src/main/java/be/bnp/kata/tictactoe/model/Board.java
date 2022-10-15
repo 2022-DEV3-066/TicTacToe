@@ -4,7 +4,7 @@ public class Board {
 
 	public Object getSlotList() {
 		// TODO Auto-generated method stub
-		return null;
+		return new Object();
 	}
 
 }
