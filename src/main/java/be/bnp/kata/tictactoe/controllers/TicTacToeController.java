@@ -19,6 +19,7 @@ public class TicTacToeController {
 	public String initGame(Model model) {
 		game.launchNewGame();
 		model.addAttribute("board", game.getBoard());
+		model.addAttribute("currentPlayer", game.getCurrentPlayer());
 		return "index";
 	}
 }
