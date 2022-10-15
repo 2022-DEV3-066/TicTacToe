@@ -62,7 +62,7 @@ class TicTacToeControllerTest {
 	}
 	
 	@Test
-	void selectingSlot9ShouldThrowIllegalArgumentException() {
-		assertThrows(IllegalArgumentException.class, () -> mockMvc.perform(get("/tictactoe/slot/9")));
+	void selectingSlot9ShouldThrowException() {
+		assertThrows(Exception.class, () -> mockMvc.perform(get("/tictactoe/slot/9")));
 	}
 }
