@@ -5,12 +5,15 @@ import java.util.List;
 
 public class Board {
 	
-	List<Slot> slotList;
-
-	public List<Slot> getSlotList() {
+	private List<Slot> slotList;
+	
+	public Board() {
 		slotList = new ArrayList<>();
 		for (int count = 1 ; count <= 9 ; count++)
 			slotList.add(new Slot());
+	}
+
+	public List<Slot> getSlotList() {
 		return slotList;
 	}
 
