@@ -7,9 +7,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import be.bnp.kata.tictactoe.services.TicTacToeGame;
@@ -17,12 +17,12 @@ import be.bnp.kata.tictactoe.services.TicTacToeGame;
 @WebMvcTest(TicTacToeController.class)
 class TicTacToeControllerTest {
 
-	@Mock
+	@MockBean
 	TicTacToeGame game;
 	
 	@Autowired
 	MockMvc mockMvc;
-	
+		
 	@Test
 	void initGameShouldDisplayIndexPage() throws Exception {
 		mockMvc.perform(get("/tictactoe"))
