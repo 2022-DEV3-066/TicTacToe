@@ -1,5 +1,6 @@
 package be.bnp.kata.tictactoe.services;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -34,5 +35,11 @@ class TicTacToeGameTest {
 	void updatingBoardShouldThrowException_IfSelectedSlotNumberSmallerThan0() {
 		game.launchNewGame();
 		assertThrows(Exception.class, () -> game.updateBoardWithSelectedSlot(-1));
+	}
+	
+	@Test
+	void updatingBoardShouldNotThrowException_IfSelectedSlotNumberBetween0And8() {
+		game.launchNewGame();
+		assertDoesNotThrow(() -> game.updateBoardWithSelectedSlot(2));
 	}
 }
