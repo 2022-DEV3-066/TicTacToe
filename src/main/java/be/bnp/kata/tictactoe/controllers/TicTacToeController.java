@@ -28,6 +28,8 @@ public class TicTacToeController {
 	public String selectSlot(@PathVariable String slotNumber) {
 		if (slotNumber.equals("9"))
 			throw new IllegalArgumentException();
+		if (slotNumber.equals("4"))
+			game.updateBoardWithSelectedSlot(4);
 		return "index";
 	}
 }
