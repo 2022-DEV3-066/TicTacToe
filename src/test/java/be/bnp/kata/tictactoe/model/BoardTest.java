@@ -3,24 +3,33 @@ package be.bnp.kata.tictactoe.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class BoardTest {
 
+	final static public int VALID_SLOT_NUMBER = 4;
+	
+	Board board;
+	
+	@BeforeEach
+	void setUp() {
+		board = new Board();
+	}
+	
 	@Test
 	void creatingNewBoardShouldCreateAListOfSlot() {
-		assertNotNull(new Board().getSlotList());
+		assertNotNull(board.getSlotList());
 	}
 	
 	@Test
 	void newSlotListShouldHaveExactlyNineSlots() {
-		assertEquals(9, new Board().getSlotList().size());
+		assertEquals(9, board.getSlotList().size());
 	}
 
 	@Test
 	void settingSlotTypeToSlotNumberShouldUpdateSlotInBoardSlotList() {
-		Board board = new Board();
-		board.setSlotType(SlotType.O, 2);
-		assertEquals(SlotType.O, board.getSlotList().get(2).getSlotType());
+		board.setSlotType(SlotType.O, VALID_SLOT_NUMBER);
+		assertEquals(SlotType.O, board.getSlotList().get(VALID_SLOT_NUMBER).getSlotType());
 	}
 }

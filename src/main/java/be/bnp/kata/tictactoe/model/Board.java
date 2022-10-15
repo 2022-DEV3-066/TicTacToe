@@ -17,9 +17,9 @@ public class Board {
 		return slotList;
 	}
 
-	public void setSlotType(SlotType o, int i) {
-		Slot selectedSlot = slotList.get(i);
-		selectedSlot.setSlotType(o);
+	public void setSlotType(SlotType slotType, int slotNumber) {
+		Slot selectedSlot = slotList.get(slotNumber);
+		selectedSlot.setSlotType(slotType);
 	}
 
 }
