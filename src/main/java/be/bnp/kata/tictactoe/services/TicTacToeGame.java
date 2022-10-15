@@ -7,7 +7,9 @@ import be.bnp.kata.tictactoe.model.SlotType;
 
 @Service
 public class TicTacToeGame {
-	
+
+	public final static String WRONG_SLOT_NUMBER = "Selected slot number should be between 0 and 8";
+
 	private Board board;
 	private SlotType currentPlayer;
 	
@@ -24,10 +26,9 @@ public class TicTacToeGame {
 		return currentPlayer;
 	}
 
-	public Object updateBoardWithSelectedSlot(int i) {
+	public void updateBoardWithSelectedSlot(int i) {
 		if (i < 0 || i > 8)
-			throw new RuntimeException();
-		return null;
+			throw new IllegalArgumentException(WRONG_SLOT_NUMBER);
 	}
 	
 }
