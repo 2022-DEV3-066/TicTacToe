@@ -26,8 +26,8 @@ public class TicTacToeGame {
 		return currentPlayer;
 	}
 
-	public void updateBoardWithSelectedSlot(int i) {
-		if (i < 0 || i > 8)
+	public void updateBoardWithSelectedSlot(int slotNumber) {
+		if (slotNumber < 0 || slotNumber > 8)
 			throw new IllegalArgumentException(WRONG_SLOT_NUMBER);
 	}
 	
