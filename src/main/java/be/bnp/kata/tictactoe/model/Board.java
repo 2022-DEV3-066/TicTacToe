@@ -30,8 +30,7 @@ public class Board {
 		return slotList.get(slotNumber).getSlotType();
 	}
 
-	public Object availableSlotsRemain() {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean availableSlotsRemain() {
+		return true;
 	}
 }
