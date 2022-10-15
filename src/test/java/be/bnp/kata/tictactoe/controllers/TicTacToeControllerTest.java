@@ -2,6 +2,7 @@ package be.bnp.kata.tictactoe.controllers;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -13,6 +14,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import be.bnp.kata.tictactoe.model.Board;
 import be.bnp.kata.tictactoe.services.TicTacToeGame;
 
 @WebMvcTest(TicTacToeController.class)
@@ -39,6 +41,7 @@ class TicTacToeControllerTest {
 	
 	@Test
 	void whenInitGameCalledModelShouldHaveBoardAttribute() throws Exception {
+		when(game.getBoard()).thenReturn(new Board());
 		mockMvc.perform(get("/tictactoe"))
 		.andExpect(model().attributeExists("board"));
 	}

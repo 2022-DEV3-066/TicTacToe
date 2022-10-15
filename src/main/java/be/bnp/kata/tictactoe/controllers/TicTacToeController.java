@@ -1,6 +1,7 @@
 package be.bnp.kata.tictactoe.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import be.bnp.kata.tictactoe.services.TicTacToeGame;
@@ -15,8 +16,9 @@ public class TicTacToeController {
 	}
 
 	@GetMapping("/tictactoe")
-	public String initGame() {
+	public String initGame(Model model) {
 		game.launchNewGame();
+		model.addAttribute("board", game.getBoard());
 		return "index";
 	}
 }
