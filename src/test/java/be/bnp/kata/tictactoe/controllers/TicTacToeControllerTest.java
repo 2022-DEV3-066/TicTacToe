@@ -33,6 +33,12 @@ class TicTacToeControllerTest {
 		.andExpect(status().isOk())
 		.andExpect(view().name("index"));
 	}
+	
+	@Test
+	void callingRootURLShouldCallInitGame() throws Exception {
+		mockMvc.perform(get("/"));
+		verify(game, times(1)).launchNewGame();
+	}
 
 	@Test
 	void initGameShouldLaunchNewGame() throws Exception {
