@@ -26,4 +26,7 @@ public class Board {
 		selectedSlot.setSlotType(slotType);
 	}
 
+	public SlotType getSlotType(int slotNumber) {
+		return slotList.get(slotNumber).getSlotType();
+	}
 }

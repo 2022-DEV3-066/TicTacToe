@@ -41,15 +41,11 @@ public class TicTacToeGame {
 	public SlotType checkForAWinner() {
 		
 		SlotType row1col1 = board.getSlotList().get(0).getSlotType();
-		if (row1col1 != SlotType.A 
-				&& row1col1.equals(board.getSlotList().get(1).getSlotType()) 
-				&& row1col1.equals(board.getSlotList().get(2).getSlotType()))
+		if (row1col1 != SlotType.A && row1col1 == board.getSlotType(1)	&& row1col1 == board.getSlotType(2))
 			return row1col1;
 		
-		SlotType row2col1 = board.getSlotList().get(3).getSlotType();
-		if (row2col1 != SlotType.A 
-				&& row2col1.equals(board.getSlotList().get(4).getSlotType()) 
-				&& row2col1.equals(board.getSlotList().get(5).getSlotType()))
+		SlotType row2col1 = board.getSlotType(3);
+		if (row2col1 != SlotType.A && row2col1 == board.getSlotType(4) && row2col1 == board.getSlotType(5))
 			return row2col1;
 		
 		return null;
