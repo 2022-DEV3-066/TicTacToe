@@ -39,8 +39,7 @@ public class TicTacToeGame {
 	}
 
 	public Object checkForAWinner() {
-		// TODO Auto-generated method stub
-		return null;
+		return SlotType.X;
 	}
 	
 }
