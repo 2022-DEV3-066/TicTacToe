@@ -40,29 +40,25 @@ public class TicTacToeGame {
 
 	public SlotType checkForAWinner() {
 		
-		SlotType firstColumn;
+		SlotType firstSlotType;
 		
+		// checking all three rows
 		for (int index = 0; index < 7 ; index += 3) {
-			firstColumn = board.getSlotType(index);
-			if (firstColumn == SlotType.A)
+			firstSlotType = board.getSlotType(index);
+			if (firstSlotType == SlotType.A)
 				continue;
-			if (firstColumn.equals(board.getSlotType(index + 1)) 
-					&& firstColumn.equals(board.getSlotType(index +2))) {
-				return firstColumn;
-			}
+			if (firstSlotType == board.getSlotType(index + 1) && firstSlotType == board.getSlotType(index +2))
+				return firstSlotType;
 		}
-
-		SlotType row1col1 = board.getSlotType(0);
-		if (row1col1 != SlotType.A && row1col1 == board.getSlotType(3) && row1col1 == board.getSlotType(6))
-			return row1col1;
-
-		SlotType row1col2 = board.getSlotType(1);
-		if (row1col2 != SlotType.A && row1col2 == board.getSlotType(4) && row1col2 == board.getSlotType(7))
-			return row1col2;
-
-		SlotType row1col3 = board.getSlotType(2);
-		if (row1col3 != SlotType.A && row1col3 == board.getSlotType(5) && row1col3 == board.getSlotType(8))
-			return row1col3;
+		
+		// checking all three columns
+		for (int index = 0; index < 3 ; index ++) {
+			firstSlotType = board.getSlotType(index);
+			if (firstSlotType == SlotType.A)
+				continue;
+			if (firstSlotType == board.getSlotType(index + 3) && firstSlotType == board.getSlotType(index +6))
+				return firstSlotType;
+		}
 		
 		return null;
 	}
