@@ -23,5 +23,10 @@ public class TicTacToeGame {
 	public SlotType getCurrentPlayer() {
 		return currentPlayer;
 	}
+
+	public Object updateBoardWithSelectedSlot(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
