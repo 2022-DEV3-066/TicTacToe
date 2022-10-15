@@ -29,6 +29,11 @@ public class TicTacToeGame {
 	public void updateBoardWithSelectedSlot(int slotNumber) {
 		if (slotNumber < 0 || slotNumber > 8)
 			throw new IllegalArgumentException(WRONG_SLOT_NUMBER);
+		
+		if (currentPlayer == SlotType.X)
+			currentPlayer = SlotType.O;
+		else
+			currentPlayer = SlotType.X;
 	}
 	
 }

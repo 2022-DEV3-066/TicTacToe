@@ -1,6 +1,6 @@
 package be.bnp.kata.tictactoe.model;
 
 public enum SlotType {
-	A, X
+	A, X, O
 
 }
