@@ -13,6 +13,8 @@ import be.bnp.kata.tictactoe.model.SlotType;
 
 class TicTacToeGameTest {
 	
+	final static public int VALID_SLOT_NUMBER = 2;
+
 	private TicTacToeGame game;
 	
 	@BeforeEach
@@ -41,14 +43,14 @@ class TicTacToeGameTest {
 	@Test
 	void updatingBoardShouldNotThrowException_IfSelectedSlotNumberBetween0And8() {
 		game.launchNewGame();
-		assertDoesNotThrow(() -> game.updateBoardWithSelectedSlot(2));
+		assertDoesNotThrow(() -> game.updateBoardWithSelectedSlot(VALID_SLOT_NUMBER));
 	}
 	
 	@Test
 	void updatingBoardShouldChangeNextPlayerSlotType() {
 		game.launchNewGame();
 		SlotType currentPlayer = game.getCurrentPlayer();
-		game.updateBoardWithSelectedSlot(2);
+		game.updateBoardWithSelectedSlot(VALID_SLOT_NUMBER);
 		assertNotEquals(currentPlayer, game.getCurrentPlayer());
 	}
 }
