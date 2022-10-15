@@ -3,6 +3,7 @@ package be.bnp.kata.tictactoe.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import be.bnp.kata.tictactoe.services.TicTacToeGame;
 
@@ -23,8 +24,10 @@ public class TicTacToeController {
 		return "index";
 	}
 	
-	@GetMapping("/tictactoe/slot/9")
-	public String selectSlot() {
-		throw new IllegalArgumentException();
+	@GetMapping("/tictactoe/slot/{slotNumber}")
+	public String selectSlot(@PathVariable String slotNumber) {
+		if (slotNumber.equals("9"))
+			throw new IllegalArgumentException();
+		return "index";
 	}
 }
