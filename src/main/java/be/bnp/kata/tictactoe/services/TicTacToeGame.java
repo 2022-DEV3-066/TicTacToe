@@ -3,6 +3,7 @@ package be.bnp.kata.tictactoe.services;
 import org.springframework.stereotype.Service;
 
 import be.bnp.kata.tictactoe.model.Board;
+import be.bnp.kata.tictactoe.model.SlotType;
 
 @Service
 public class TicTacToeGame {
@@ -17,9 +18,8 @@ public class TicTacToeGame {
 		return board;
 	}
 
-	public Object getCurrentPlayer() {
-		// TODO Auto-generated method stub
-		return null;
+	public SlotType getCurrentPlayer() {
+		return SlotType.X;
 	}
 	
 }
