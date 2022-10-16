@@ -29,6 +29,8 @@ public class TicTacToeController {
 	public String selectSlot(@PathVariable String slotNumber, Model model) {
 		if (game.getBoard() == null)
 			return "redirect:/tictactoe";
+		if (game.checkForAWinner() != null || !game.getBoard().availableSlotsRemain())
+			return "redirect:/tictactoe";
 		game.updateBoardWithSelectedSlot(Integer.valueOf(slotNumber));
 		model.addAttribute("board", game.getBoard());
 		model.addAttribute("currentPlayer", game.getCurrentPlayer());
