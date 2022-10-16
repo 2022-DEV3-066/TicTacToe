@@ -65,6 +65,13 @@ class TicTacToeControllerTest {
 	}
 	
 	@Test
+	void initGameShouldAddSlotsAvailableAttributeToModel() throws Exception {
+		when(game.getBoard()).thenReturn(new Board());
+		mockMvc.perform(get("/tictactoe"))
+		.andExpect(model().attributeExists("slotsAvailable"));
+	}
+	
+	@Test
 	void selectingSlot2ShouldDisplayIndexPage() throws Exception {
 		when(game.getBoard()).thenReturn(new Board());
 		mockMvc.perform(get("/tictactoe/slot/2"))

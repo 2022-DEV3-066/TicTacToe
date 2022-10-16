@@ -79,5 +79,6 @@
 	</table>
 	<br>
 	<div th:if="${winner}" th:text="'And the winner is Player ' + ${winner}"></div><p>
+	<div th:unless="${slotsAvailable}" th:text="'It is a draw game !'"></div><p>
 </body>
 </html>
