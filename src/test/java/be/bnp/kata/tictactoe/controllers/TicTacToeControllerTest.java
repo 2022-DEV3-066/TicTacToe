@@ -1,6 +1,5 @@
 package be.bnp.kata.tictactoe.controllers;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -59,11 +58,6 @@ class TicTacToeControllerTest {
 		when(game.getCurrentPlayer()).thenReturn(SlotType.X);
 		mockMvc.perform(get("/tictactoe"))
 		.andExpect(model().attribute("currentPlayer", SlotType.X));
-	}
-	
-	@Test
-	void selectingSlot9ShouldThrowException() {
-		assertThrows(Exception.class, () -> mockMvc.perform(get("/tictactoe/slot/9")));
 	}
 	
 	@Test
