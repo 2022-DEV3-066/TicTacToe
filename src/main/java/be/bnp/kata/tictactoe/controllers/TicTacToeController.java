@@ -28,6 +28,7 @@ public class TicTacToeController {
 	public String selectSlot(@PathVariable String slotNumber, Model model) {
 		game.updateBoardWithSelectedSlot(Integer.valueOf(slotNumber));
 		model.addAttribute("board", game.getBoard());
+		model.addAttribute("currentPlayer", game.getCurrentPlayer());
 		return "index";
 	}
 }
