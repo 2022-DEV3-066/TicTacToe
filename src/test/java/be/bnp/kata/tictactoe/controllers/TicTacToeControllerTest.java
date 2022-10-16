@@ -111,15 +111,6 @@ class TicTacToeControllerTest {
 	}
 	
 	@Test
-	void selectingSlot3ShouldAddWinnerAttributeToModel() throws Exception {
-		when(game.getBoard()).thenReturn(board);
-		when(game.checkForAWinner()).thenReturn(null);
-		when(board.availableSlotsRemain()).thenReturn(true);
-		mockMvc.perform(get("/tictactoe/slot/3"))
-		.andExpect(model().attribute("winner", null));
-	}
-	
-	@Test
 	void selectingSlot2ShouldAddSlotsAvailableAttributeToModel() throws Exception {
 		when(game.getBoard()).thenReturn(board);
 		when(board.availableSlotsRemain()).thenReturn(true);
