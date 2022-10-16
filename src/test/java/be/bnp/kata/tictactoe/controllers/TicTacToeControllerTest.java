@@ -1,5 +1,6 @@
 package be.bnp.kata.tictactoe.controllers;
 
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -135,5 +136,12 @@ class TicTacToeControllerTest {
 		when(board.availableSlotsRemain()).thenReturn(false);
 		mockMvc.perform(get("/tictactoe/slot/2"))
 		.andExpect(view().name("redirect:/tictactoe"));
+	}
+	
+	@Test
+	void ifSelectingSlotThrowNewIllegalArgumentException_ThenReturnToIndexPage() throws Exception {
+		doThrow(new IllegalArgumentException()).when(game).updateBoardWithSelectedSlot(2);;
+		mockMvc.perform(get("/tictactoe/slot/2"))
+		.andExpect(view().name("index"));
 	}
 }
