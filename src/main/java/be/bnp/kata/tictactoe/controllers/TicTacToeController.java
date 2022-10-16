@@ -29,6 +29,7 @@ public class TicTacToeController {
 		game.updateBoardWithSelectedSlot(Integer.valueOf(slotNumber));
 		model.addAttribute("board", game.getBoard());
 		model.addAttribute("currentPlayer", game.getCurrentPlayer());
+		model.addAttribute("winner", game.checkForAWinner());
 		return "index";
 	}
 }
