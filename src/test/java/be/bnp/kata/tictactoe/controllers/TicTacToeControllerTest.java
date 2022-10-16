@@ -79,6 +79,7 @@ class TicTacToeControllerTest {
 	@Test
 	void selectingSlot2ShouldDisplayIndexPage() throws Exception {
 		when(game.getBoard()).thenReturn(board);
+		when(board.availableSlotsRemain()).thenReturn(true);
 		mockMvc.perform(get("/tictactoe/slot/2"))
 		.andExpect(status().isOk())
 		.andExpect(view().name("index"));
@@ -87,6 +88,7 @@ class TicTacToeControllerTest {
 	@Test
 	void selectingSlot4ShouldCallupdateBoardWithSelectedSlot() throws Exception {
 		when(game.getBoard()).thenReturn(board);
+		when(board.availableSlotsRemain()).thenReturn(true);
 		mockMvc.perform(get("/tictactoe/slot/4"));
 		verify(game, times(1)).updateBoardWithSelectedSlot(4);
 	}
@@ -94,6 +96,7 @@ class TicTacToeControllerTest {
 	@Test
 	void selectingSlot6ShouldAddBoardToModel() throws Exception {
 		when(game.getBoard()).thenReturn(board);
+		when(board.availableSlotsRemain()).thenReturn(true);
 		mockMvc.perform(get("/tictactoe/slot/6"))
 		.andExpect(model().attributeExists("board"));
 	}
@@ -102,21 +105,15 @@ class TicTacToeControllerTest {
 	void selectingSlot5ShouldAddCurrentPlayerToModel() throws Exception {
 		when(game.getBoard()).thenReturn(board);
 		when(game.getCurrentPlayer()).thenReturn(SlotType.X);
+		when(board.availableSlotsRemain()).thenReturn(true);
 		mockMvc.perform(get("/tictactoe/slot/5"))
 		.andExpect(model().attributeExists("currentPlayer"));
 	}
 	
 	@Test
-	void selectingSlot3ShouldAddWinnerAttributeToModel() throws Exception {
-		when(game.getBoard()).thenReturn(board);
-		when(game.checkForAWinner()).thenReturn(SlotType.X);
-		mockMvc.perform(get("/tictactoe/slot/3"))
-		.andExpect(model().attributeExists("winner"));
-	}
-	
-	@Test
 	void selectingSlot2ShouldAddSlotsAvailableAttributeToModel() throws Exception {
 		when(game.getBoard()).thenReturn(board);
+		when(board.availableSlotsRemain()).thenReturn(true);
 		mockMvc.perform(get("/tictactoe/slot/2"))
 		.andExpect(model().attributeExists("slotsAvailable"));
 	}
@@ -140,8 +137,10 @@ class TicTacToeControllerTest {
 	
 	@Test
 	void ifSelectingSlotThrowNewIllegalArgumentException_ThenReturnToIndexPage() throws Exception {
-		doThrow(new IllegalArgumentException()).when(game).updateBoardWithSelectedSlot(2);;
-		mockMvc.perform(get("/tictactoe/slot/2"))
+		when(game.getBoard()).thenReturn(board);
+		when(board.availableSlotsRemain()).thenReturn(true);
+		doThrow(new IllegalArgumentException()).when(game).updateBoardWithSelectedSlot(9);;
+		mockMvc.perform(get("/tictactoe/slot/9"))
 		.andExpect(view().name("index"));
 	}
 }

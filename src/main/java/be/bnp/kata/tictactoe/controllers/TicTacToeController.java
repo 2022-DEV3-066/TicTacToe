@@ -31,7 +31,10 @@ public class TicTacToeController {
 			return "redirect:/tictactoe";
 		if (game.checkForAWinner() != null || !game.getBoard().availableSlotsRemain())
 			return "redirect:/tictactoe";
-		game.updateBoardWithSelectedSlot(Integer.valueOf(slotNumber));
+		try {
+			game.updateBoardWithSelectedSlot(Integer.valueOf(slotNumber));
+		}
+		catch (IllegalArgumentException ex) {}
 		model.addAttribute("board", game.getBoard());
 		model.addAttribute("currentPlayer", game.getCurrentPlayer());
 		model.addAttribute("winner", game.checkForAWinner());
