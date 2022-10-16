@@ -115,4 +115,11 @@ class TicTacToeControllerTest {
 		mockMvc.perform(get("/tictactoe/slot/2"))
 		.andExpect(model().attributeExists("slotsAvailable"));
 	}
+	
+	@Test
+	void ifBoardIsNullWhenSelectingSlot7_ThenShouldRedirectToInitGame() throws Exception {
+		when(game.getBoard()).thenReturn(null);
+		mockMvc.perform(get("/tictactoe/slot/7"))
+		.andExpect(view().name("redirect:/tictactoe"));
+	}
 }
