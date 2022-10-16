@@ -25,8 +25,9 @@ public class TicTacToeController {
 	}
 	
 	@GetMapping("/tictactoe/slot/{slotNumber}")
-	public String selectSlot(@PathVariable String slotNumber) {
+	public String selectSlot(@PathVariable String slotNumber, Model model) {
 		game.updateBoardWithSelectedSlot(Integer.valueOf(slotNumber));
+		model.addAttribute("board", game.getBoard());
 		return "index";
 	}
 }
