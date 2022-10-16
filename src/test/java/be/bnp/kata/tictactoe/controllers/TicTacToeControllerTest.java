@@ -120,6 +120,7 @@ class TicTacToeControllerTest {
 	void ifBoardIsNullWhenSelectingSlot7_ThenShouldRedirectToInitGame() throws Exception {
 		when(game.getBoard()).thenReturn(null);
 		mockMvc.perform(get("/tictactoe/slot/7"))
+		.andExpect(status().is3xxRedirection())
 		.andExpect(view().name("redirect:/tictactoe"));
 	}
 }
