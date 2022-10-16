@@ -23,7 +23,7 @@
 	</style>
 </head>
 <body th:object="${board}">
-	<div th:unless="${winner}" th:text="'Player ' + ${currentPlayer} + ' turn :'"></div><p>
+	<div th:if="${slotsAvailable}"><div th:unless="${winner}" th:text="'Player ' + ${currentPlayer} + ' turn :'"></div></div><p>
 	<table>
 	<tbody>
 		<tr>
@@ -81,7 +81,7 @@
 	</table>
 	<br>
 	<div th:if="${winner}" th:text="'And the winner is Player ' + ${winner}"></div><p>
-	<div th:unless="${slotsAvailable}" th:text="'It is a draw game !'"></div><p>
+	<div th:unless="${slotsAvailable}"><div th:unless="${winner}" th:text="'It is a draw game !'"></div></div><p>
 	<div>Click <a th:href="@{/tictactoe}" th:text="Here"></a> to play another game</div><p>
 </body>
 </html>
