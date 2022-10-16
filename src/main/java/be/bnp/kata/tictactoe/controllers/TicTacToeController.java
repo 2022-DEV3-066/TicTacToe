@@ -26,10 +26,7 @@ public class TicTacToeController {
 	
 	@GetMapping("/tictactoe/slot/{slotNumber}")
 	public String selectSlot(@PathVariable String slotNumber) {
-		if (slotNumber.equals("9"))
-			throw new IllegalArgumentException();
-		if (slotNumber.equals("4"))
-			game.updateBoardWithSelectedSlot(4);
+		game.updateBoardWithSelectedSlot(Integer.valueOf(slotNumber));
 		return "index";
 	}
 }
