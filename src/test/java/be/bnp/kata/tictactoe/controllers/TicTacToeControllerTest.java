@@ -72,4 +72,11 @@ class TicTacToeControllerTest {
 		mockMvc.perform(get("/tictactoe/slot/4"));
 		verify(game, times(1)).updateBoardWithSelectedSlot(4);
 	}
+	
+	@Test
+	void selectingSlot6ShouldAddBoardToModel() throws Exception {
+		when(game.getBoard()).thenReturn(new Board());
+		mockMvc.perform(get("/tictactoe/slot/6"))
+		.andExpect(model().attributeExists("board"));
+	}
 }
