@@ -21,6 +21,7 @@ public class TicTacToeController {
 		game.launchNewGame();
 		model.addAttribute("board", game.getBoard());
 		model.addAttribute("currentPlayer", game.getCurrentPlayer());
+		model.addAttribute("slotsAvailable", game.getBoard().availableSlotsRemain());
 		return "index";
 	}
 	
