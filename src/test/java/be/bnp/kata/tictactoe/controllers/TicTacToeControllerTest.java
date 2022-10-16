@@ -101,4 +101,11 @@ class TicTacToeControllerTest {
 		mockMvc.perform(get("/tictactoe/slot/3"))
 		.andExpect(model().attributeExists("winner"));
 	}
+	
+	@Test
+	void selectingSlot2ShouldAddSlotsAvailableAttributeToModel() throws Exception {
+		when(game.getBoard()).thenReturn(new Board());
+		mockMvc.perform(get("/tictactoe/slot/2"))
+		.andExpect(model().attributeExists("slotsAvailable"));
+	}
 }
