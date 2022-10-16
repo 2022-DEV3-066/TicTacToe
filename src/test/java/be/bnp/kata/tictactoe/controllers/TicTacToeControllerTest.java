@@ -29,6 +29,7 @@ class TicTacToeControllerTest {
 		
 	@Test
 	void initGameShouldDisplayIndexPage() throws Exception {
+		when(game.getBoard()).thenReturn(new Board());
 		mockMvc.perform(get("/tictactoe"))
 		.andExpect(status().isOk())
 		.andExpect(view().name("index"));
@@ -36,12 +37,14 @@ class TicTacToeControllerTest {
 	
 	@Test
 	void callingRootURLShouldCallInitGame() throws Exception {
+		when(game.getBoard()).thenReturn(new Board());
 		mockMvc.perform(get("/"));
 		verify(game, times(1)).launchNewGame();
 	}
 
 	@Test
 	void initGameShouldLaunchNewGame() throws Exception {
+		when(game.getBoard()).thenReturn(new Board());
 		mockMvc.perform(get("/tictactoe"));
 		verify(game, times(1)).launchNewGame();
 	}
@@ -55,6 +58,7 @@ class TicTacToeControllerTest {
 	
 	@Test
 	void whenInitGameCalledModelShouldHaveCurrentPlayerEqualsToX() throws Exception {
+		when(game.getBoard()).thenReturn(new Board());
 		when(game.getCurrentPlayer()).thenReturn(SlotType.X);
 		mockMvc.perform(get("/tictactoe"))
 		.andExpect(model().attribute("currentPlayer", SlotType.X));
@@ -62,6 +66,7 @@ class TicTacToeControllerTest {
 	
 	@Test
 	void selectingSlot2ShouldDisplayIndexPage() throws Exception {
+		when(game.getBoard()).thenReturn(new Board());
 		mockMvc.perform(get("/tictactoe/slot/2"))
 		.andExpect(status().isOk())
 		.andExpect(view().name("index"));
@@ -69,6 +74,7 @@ class TicTacToeControllerTest {
 	
 	@Test
 	void selectingSlot4ShouldCallupdateBoardWithSelectedSlot() throws Exception {
+		when(game.getBoard()).thenReturn(new Board());
 		mockMvc.perform(get("/tictactoe/slot/4"));
 		verify(game, times(1)).updateBoardWithSelectedSlot(4);
 	}
@@ -82,8 +88,17 @@ class TicTacToeControllerTest {
 	
 	@Test
 	void selectingSlot5ShouldAddCurrentPlayerToModel() throws Exception {
+		when(game.getBoard()).thenReturn(new Board());
 		when(game.getCurrentPlayer()).thenReturn(SlotType.X);
 		mockMvc.perform(get("/tictactoe/slot/5"))
 		.andExpect(model().attributeExists("currentPlayer"));
+	}
+	
+	@Test
+	void selectingSlot3ShouldAddWinnerAttributeToModel() throws Exception {
+		when(game.getBoard()).thenReturn(new Board());
+		when(game.checkForAWinner()).thenReturn(SlotType.X);
+		mockMvc.perform(get("/tictactoe/slot/3"))
+		.andExpect(model().attributeExists("winner"));
 	}
 }

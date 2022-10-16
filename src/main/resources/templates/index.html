@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title>Tic Tac Toe Game</title>
@@ -20,24 +20,60 @@
 		}	
 	</style>
 </head>
-<body>
-	Player X turn : <p>
+<body th:object="${board}">
+	<div th:text="'Player ' + ${currentPlayer} + ' turn :'"></div><p>
 	<table>
 	<tbody>
 		<tr>
-			<td><a href="">Select</a></td>
-			<td><a href="">Select</a></td>
-			<td><a href="">Select</a></td>
+			<td th:switch="${board.getSlotType(0)}">
+				<a th:case="${T(be.bnp.kata.tictactoe.model.SlotType).A}" th:href="@{/tictactoe/slot/0}" th:text="Select">Select</a>
+				<div th:case="${T(be.bnp.kata.tictactoe.model.SlotType).X}" th:text="X"></div>
+				<div th:case="${T(be.bnp.kata.tictactoe.model.SlotType).O}" th:text="O"></div>
+			</td>
+			<td th:switch="${board.getSlotType(1)}">
+				<a th:case="${T(be.bnp.kata.tictactoe.model.SlotType).A}" th:href="@{/tictactoe/slot/1}" th:text="Select">Select</a>
+				<div th:case="${T(be.bnp.kata.tictactoe.model.SlotType).X}" th:text="X"></div>
+				<div th:case="${T(be.bnp.kata.tictactoe.model.SlotType).O}" th:text="O"></div>
+			</td>
+			<td th:switch="${board.getSlotType(2)}">
+				<a th:case="${T(be.bnp.kata.tictactoe.model.SlotType).A}" th:href="@{/tictactoe/slot/2}" th:text="Select">Select</a>
+				<div th:case="${T(be.bnp.kata.tictactoe.model.SlotType).X}" th:text="X"></div>
+				<div th:case="${T(be.bnp.kata.tictactoe.model.SlotType).O}" th:text="O"></div>
+			</td>
 		</tr>
 		<tr>
-			<td><a href="">Select</a></td>
-			<td><a href="">Select</a></td>
-			<td><a href="">Select</a></td>
+			<td th:switch="${board.getSlotType(3)}">
+				<a th:case="${T(be.bnp.kata.tictactoe.model.SlotType).A}" th:href="@{/tictactoe/slot/3}" th:text="Select">Select</a>
+				<div th:case="${T(be.bnp.kata.tictactoe.model.SlotType).X}" th:text="X"></div>
+				<div th:case="${T(be.bnp.kata.tictactoe.model.SlotType).O}" th:text="O"></div>
+			</td>
+			<td th:switch="${board.getSlotType(4)}">
+				<a th:case="${T(be.bnp.kata.tictactoe.model.SlotType).A}" th:href="@{/tictactoe/slot/4}" th:text="Select">Select</a>
+				<div th:case="${T(be.bnp.kata.tictactoe.model.SlotType).X}" th:text="X"></div>
+				<div th:case="${T(be.bnp.kata.tictactoe.model.SlotType).O}" th:text="O"></div>
+			</td>
+			<td th:switch="${board.getSlotType(5)}">
+				<a th:case="${T(be.bnp.kata.tictactoe.model.SlotType).A}" th:href="@{/tictactoe/slot/5}" th:text="Select">Select</a>
+				<div th:case="${T(be.bnp.kata.tictactoe.model.SlotType).X}" th:text="X"></div>
+				<div th:case="${T(be.bnp.kata.tictactoe.model.SlotType).O}" th:text="O"></div>
+			</td>
 		</tr>
 		<tr>
-			<td><a href="">Select</a></td>
-			<td><a href="">Select</a></td>
-			<td><a href="">Select</a></td>
+			<td th:switch="${board.getSlotType(6)}">
+				<a th:case="${T(be.bnp.kata.tictactoe.model.SlotType).A}" th:href="@{/tictactoe/slot/6}" th:text="Select">Select</a>
+				<div th:case="${T(be.bnp.kata.tictactoe.model.SlotType).X}" th:text="X"></div>
+				<div th:case="${T(be.bnp.kata.tictactoe.model.SlotType).O}" th:text="O"></div>
+			</td>
+			<td th:switch="${board.getSlotType(7)}">
+				<a th:case="${T(be.bnp.kata.tictactoe.model.SlotType).A}" th:href="@{/tictactoe/slot/7}" th:text="Select">Select</a>
+				<div th:case="${T(be.bnp.kata.tictactoe.model.SlotType).X}" th:text="X"></div>
+				<div th:case="${T(be.bnp.kata.tictactoe.model.SlotType).O}" th:text="O"></div>
+			</td>
+			<td th:switch="${board.getSlotType(8)}">
+				<a th:case="${T(be.bnp.kata.tictactoe.model.SlotType).A}" th:href="@{/tictactoe/slot/8}" th:text="Select">Select</a>
+				<div th:case="${T(be.bnp.kata.tictactoe.model.SlotType).X}" th:text="X"></div>
+				<div th:case="${T(be.bnp.kata.tictactoe.model.SlotType).O}" th:text="O"></div>
+			</td>
 		</tr>
 	</tbody>
 	</table>
