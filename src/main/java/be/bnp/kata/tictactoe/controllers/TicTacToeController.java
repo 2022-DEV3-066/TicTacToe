@@ -27,6 +27,8 @@ public class TicTacToeController {
 	
 	@GetMapping("/tictactoe/slot/{slotNumber}")
 	public String selectSlot(@PathVariable String slotNumber, Model model) {
+		if (game.getBoard() == null)
+			return "redirect:/tictactoe";
 		game.updateBoardWithSelectedSlot(Integer.valueOf(slotNumber));
 		model.addAttribute("board", game.getBoard());
 		model.addAttribute("currentPlayer", game.getCurrentPlayer());
